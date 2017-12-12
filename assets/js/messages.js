@@ -11,6 +11,14 @@ module.exports.saveMessage = (content) => {
     messages.push(message);
     return time;
 };
+module.exports.saveMessage = (content, timestamp) => {
+    let message = {
+        "body": content,
+        "timestamp": timestamp,
+    };
+    messages.push(message);
+    return timestamp;
+};
 
 module.exports.deleteMessage = (timestamp) => {
     // return all messages with the above timestamp
