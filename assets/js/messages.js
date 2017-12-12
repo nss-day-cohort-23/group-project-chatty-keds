@@ -2,14 +2,13 @@
 
 let messages = [];
 
-module.exports.saveMessage = (content) => {
-    let time = Date.now();
+module.exports.saveMessage = (content, timestamp) => {
     let message = {
         "body": content,
-        "timestamp": time,
+        "timestamp": timestamp,
     };
     messages.push(message);
-    return time;
+    return timestamp;
 };
 
 module.exports.deleteMessage = (timestamp) => {

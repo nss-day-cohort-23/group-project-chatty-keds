@@ -13,6 +13,7 @@ const createMsgElm = (text, id) => {
 
   const msgDeleteBtn = document.createElement("button");
   msgDeleteBtn.className = "delete-button";
+  msgDeleteBtn.innerText = "Delete";
 
   msgWrapper.appendChild(msgContent);
   msgWrapper.appendChild(msgDeleteBtn);
