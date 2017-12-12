@@ -22,7 +22,8 @@ const createMsgElm = (text, id) => {
 
 const removeMsgElm = id => {
   const msgContainer = document.getElementById("messageContainer");// messageContainer ID will change with hard-coded index.html
-  msgContainer.removeChild(id);
+  const msgToRemove = document.getElementById(id);
+  msgContainer.removeChild(msgToRemove);
 };
 
 module.exports = {createMsgElm, removeMsgElm};
