@@ -2,15 +2,6 @@
 
 let messages = [];
 
-module.exports.saveMessage = (content) => {
-    let time = Date.now();
-    let message = {
-        "body": content,
-        "timestamp": time,
-    };
-    messages.push(message);
-    return time;
-};
 module.exports.saveMessage = (content, timestamp) => {
     let message = {
         "body": content,

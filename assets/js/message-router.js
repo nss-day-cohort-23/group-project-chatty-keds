@@ -3,10 +3,11 @@
 const messenger = require("./messages");
 const domController = require("./dom-output");
 
-const addMessage = (string) => {
-    let id = messenger.saveMessage(string);
+const addMessage = (string, timestamp) => {
+    let id = messenger.saveMessage(string, timestamp);
+    console.log(id);
     let msgElm = domController.createMsgElm(string, id);
-    let container = document.getElementById(/** msg container **/);
+    let container = document.getElementById("message-container");
     container.appendChild(msgElm);
 };
 
@@ -27,7 +28,11 @@ const parseMessages = () => {
     let data = JSON.parse(event.target.responseText);
     let messages = data.messages;
     messages.forEach(message => {
-        addMessage(message.body);
+        let timestamp = Date.now();
+        if (message.timestamp) {
+            timestamp = message.timestamp;
+        }
+        addMessage(message.body, timestamp);
     });
 };
 
