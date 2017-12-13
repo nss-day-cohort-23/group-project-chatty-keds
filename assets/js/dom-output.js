@@ -2,7 +2,7 @@
 
 const createMsgElm = (text, id) => {
   const msgWrapper = document.createElement("div");
-  msgWrapper.id = `m${id}`;
+  msgWrapper.id = `${id}`;
   msgWrapper.className = "message-wrapper";
 
   const msgContent = document.createElement("span");
@@ -22,7 +22,7 @@ const createMsgElm = (text, id) => {
 };
 
 const removeMsgElm = id => {
-  const msgContainer = document.getElementById("messageContainer");// messageContainer ID will change with hard-coded index.html
+  const msgContainer = document.getElementById("message-container");
   const msgToRemove = document.getElementById(id);
   msgContainer.removeChild(msgToRemove);
 };
