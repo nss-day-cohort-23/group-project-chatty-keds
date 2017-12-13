@@ -18,7 +18,8 @@ Check out the [simple wireframe](https://app.moqups.com/chortlehoort/uGBbLbK46Y/
 
 ### Options
 
-1. Create two checkboxes below the message input field. One labeled "Dark theme" and the other labeled "Large text".
+1. :warning:Create two checkboxes below the message input field. One labeled "Dark theme" and the other labeled "Large text".
+   - :warning: Not dropdowns.
 1. When the user clicks on the dark theme checkbox, change the background color of your application to a dark gray, and the font color for messages should be white(ish)... you pick.
 1. If the user unchecks the box, the background color should change back to white with black text for messages.
 
@@ -26,22 +27,23 @@ Check out the [simple wireframe](https://app.moqups.com/chortlehoort/uGBbLbK46Y/
 1. :white_check_mark: When the page is first loaded, you must load 5 messages from a local JSON file and pre-fill a message area `<div>` below the input field that will also hold all new messages as they get created.
 1. When the user presses the return key in the message field, the new message should be inserted into the message area.
 1. The message should have a button displayed after it with the text "Delete" inside of it.
-1. When the delete button next to a message is clicked, only that message should be removed from the DOM.
-
+   - :warning: Not an `X` icon.
+   - When the delete button next to a message is clicked, only that message should be removed from the DOM.
 
 ### Modular Code
 
-Create multiple modules that perform the following functions. The name of your global variable that gets augmented by the IIFEs should be `Chatty`.
+Create multiple modules that perform the following functions. :warning: The name of your global variable that gets augmented by the modules should be `Chatty`.
 
-1. One module
+1. :warning: `fetch.js`
    - Should load the JSON file and return the array of objects.
-1. One module 
-   - Should contain a function that accepts an element `id`, and the user message, and then add the user's message to the specified parent element.
+1. :warning: `add.js`
+   - `addMessage(id, string)` Should contain a function that accepts an element `id`, and the user message, and then add the user's message to the specified parent element.
      - Should also add the delete button.
-   - Each message should be stored in a private array in this module
-   - Should also expose a function to read all messages, and delete a single message.
-1. One module
-   - Should accept a message element `id` and then remove the correct element from the DOM
+   - :warning: Each message should be stored in a private array in this module
+   - `getMessages()` Should also expose a function to read all messages.
+   - `deleteMessage(id)` Should expose a function to delete a single message.
+1. :warning: `delete.js`
+   - `deleteMessage(id)`: Should accept a message element `id` and then remove the correct element from the DOM.
    - Should also remove the corresponding message from the private array that was created in the previous module.
 
 ## Helpful hints
