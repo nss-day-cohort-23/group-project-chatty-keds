@@ -13,8 +13,8 @@ Check out the [simple wireframe](https://app.moqups.com/chortlehoort/uGBbLbK46Y/
 1. :white_check_mark: When return key is detected, you'll create a new message (*see details below*).
 1. :white_check_mark: Create a button to clear all messages.
 1. :white_check_mark: When the user clicks the clear messages button, all current chat messages should be removed from the application.
-1. If there are no messages, then the clear messages button should be disabled (*see example above*).
-1. The navigation bar should remain at the top of the screen, even if the contents of the page start to scroll.
+1. :white_check_mark: If there are no messages, then the clear messages button should be disabled (*see example above*).
+1. :white_check_mark: The navigation bar should remain at the top of the screen, even if the contents of the page start to scroll.
 
 ### Options
 
@@ -39,7 +39,7 @@ Create multiple modules that perform the following functions. :white_check_mark:
    - :white_check_mark: Should load the JSON file and return the array of objects.
 1. :white_check_mark: `add.js`
    - :white_check_mark: `addMessage(id, string)` Should contain a function that accepts an element `id`, and the user message, and then add the user's message to the specified parent element.
-     - :alert: Should also add the delete button.
+     - :white_check_mark: Should also add the delete button.
    - :white_check_mark: Each message should be stored in a private array in this module called `Chatty`.
    - :white_check_mark: `getMessages()` Should also expose a function to read all messages.
    - :white_check_mark: `deleteMessage(id)` Should expose a function to delete a single message.
@@ -71,10 +71,10 @@ Instead of having one JSON file with five messages in it, break each message int
 
 ### Multiple users
 
-1. Create an object in your JavaScript that holds an array of names (*see example below*).
+1. :white_check_mark: Create an object in your JavaScript that holds an array of names (*see example below*).
 1. Next to the message input box, there should be a radio button group for each name in the list.
-1. When a user enters a message, it should be prepended with the chosen user's name, in bold text.
-1. Keep in mind that this will likely change the structure of your JSON file since the pre-loaded messages have to have this information on them.
+1. :white_check_mark: When a user enters a message, it should be prepended with the chosen user's name, in bold text.
+1. :white_check_mark: Keep in mind that this will likely change the structure of your JSON file since the pre-loaded messages have to have this information on them.
 
 ```js
 // User object
