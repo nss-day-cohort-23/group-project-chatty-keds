@@ -20,13 +20,13 @@ const clickListen = () => {
 const changeListen = () => {
   document.body.addEventListener("change", event => {
     if (event.target.parentNode.id === "text-sizer") {
-      console.log("Hey the text-sizer checkbox works");
+      sizer.toggleSize();
     }
     if (event.target.parentNode.id === "theme-changer") {
       console.log("Hey there the theme-changer checkbox works");
     }
   });
-}
+};
 
 const enterListen = () => {
   document.body.addEventListener("keypress", event => {
