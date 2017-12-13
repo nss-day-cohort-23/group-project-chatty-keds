@@ -31,7 +31,7 @@ Check out the [simple wireframe](https://app.moqups.com/chortlehoort/uGBbLbK46Y/
 
 ### Modular Code
 
-Create multiple modules that perform the following functions. The name of your global variable that gets augmented by the IIFEs should be `Chatty`.
+Create multiple modules that perform the following functions. The name of your global variable that gets augmented by the modules should be `Chatty`.
 
 1. One module
    - Should load the JSON file and return the array of objects.
@@ -41,7 +41,7 @@ Create multiple modules that perform the following functions. The name of your g
    - Each message should be stored in a private array in this module
    - Should also expose a function to read all messages, and delete a single message.
 1. One module
-   - Should accept a message element `id` and then remove the correct element from the DOM
+   - Should accept a message element `id` and then remove the correct element from the DOM.
    - Should also remove the corresponding message from the private array that was created in the previous module.
 
 ## Helpful hints
