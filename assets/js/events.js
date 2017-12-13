@@ -24,7 +24,6 @@ const changeListen = () => {
       sizer.toggleSize();
     }
     if (event.target.parentNode.id === "theme-changer") {
-      console.log("Hey there the theme-changer checkbox works");
       if (event.target.checked) {
         styler.setStylesheet("assets/css/dark.css");
       } else {
