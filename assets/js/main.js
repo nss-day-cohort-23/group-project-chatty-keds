@@ -1,5 +1,5 @@
 "use strict";
 
-const router = require("./message-router");
+const init = require("./initialize");
 
-router.fetchMessages("assets/json/messages.json");
+init.init();
