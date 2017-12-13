@@ -4,6 +4,7 @@ const add = require("./add");
 const deleter = require('./delete');
 const sizer = require("./text-sizer");
 const styler = require("./themes");
+const clearMsgsDisable = require("./clear-disable");
 
 const clickListen = () => {
   document.body.addEventListener("click", event => {
@@ -15,6 +16,8 @@ const clickListen = () => {
       [...document.getElementsByClassName("message-wrapper")].forEach(item => {
         deleter.deleteMessage(item.id);
       });
+
+      clearMsgsDisable.disable(0);
     }
   });
 };
@@ -40,7 +43,7 @@ const enterListen = () => {
     let check = event.key === "Enter" && inputId === "msgInput" && event.target.value.trim() !== "";
     if (check){
       const inputElm = document.getElementById(inputId);
-      add.addMessage(event.target.value, null);
+      add.addMessage(event.target.value, null, 1);
       inputElm.value = '';
     }
   });
