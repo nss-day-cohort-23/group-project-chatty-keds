@@ -7,7 +7,8 @@ const styler = require("./themes");
 
 const clickListen = () => {
   document.body.addEventListener("click", event => {
-    if (event.target.parentNode.className === "message-wrapper") {
+    const deleteBtnCheck = event.target.className.search(/delete-button/);
+    if (deleteBtnCheck > -1) {
       deleter.deleteMessage(event.target.parentNode.id);
     }
     if (event.target.id === "clearMsgs") {
