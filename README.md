@@ -26,8 +26,8 @@ Check out the [simple wireframe](https://app.moqups.com/chortlehoort/uGBbLbK46Y/
 ### Messages
 
 1. :white_check_mark: When the page is first loaded, you must load 5 messages from a local JSON file and pre-fill a message area `<div>` below the input field that will also hold all new messages as they get created.
-1. :white_check_mark:When the user presses the return key in the message field, the new message should be inserted into the message area.
-1. :white_check_mark:The message should have a button displayed after it with the text "Delete" inside of it.
+1. :white_check_mark: When the user presses the return key in the message field, the new message should be inserted into the message area.
+1. :white_check_mark: The message should have a button displayed after it with the text "Delete" inside of it.
    - :white_check_mark: Not an `X` icon.
    - :white_check_mark: When the delete button next to a message is clicked, only that message should be removed from the DOM.
 
@@ -46,49 +46,6 @@ Create multiple modules that perform the following functions. :white_check_mark:
 1. :white_check_mark: `delete.js`
    - :white_check_mark: `deleteMessage(id)`: Should accept a message element `id` and then remove the correct element from the DOM.
    - :white_check_mark: Should also remove the corresponding message from the private array that was created in the previous module.
-
-## Helpful hints
-
-### Adding listeners to dynamically created elements
-
-When you add a DOM element to your page with JavaScript, you cannot add a listener to them directly in your code with `addEventListener`. This is because the element didn't exist when your JavaScript file got parsed and executed by the browser when it loaded. What you need to do is listen for the event on the `<body>` element, and then inspect what the target of the event is (i.e. which element the user actually performed the action on).
-
-```js
-document.querySelector("body").addEventListener("click", function(event) {
-  console.log(event);
-
-  // Handle the click event on any li
-  if (event.target.tagName.toLowerCase() === "li") {
-    console.log("You clicked on an <li> element");
-  }
-
-  // Handle the click event on any DOM element with a certain class
-  if (event.target.className === "article-section") {
-    console.log("You clicked on an `article-section` element");
-  }
-
-  // Inspect the `id` property of the event target
-  if (event.target.id === "page-title") {
-    console.log("You clicked on the page-title element");
-  }
-});
-```
-
-### Setting element attributes
-
-You can use JavaScript to [set any attribute](https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute) on a DOM element. You've seen how to add/remove classes with `classList.add()`, `classList.remove()`, and `classList.toggle()`, but you can also add `id`, `href`, `src`, or any other attribute.
-
-Here's an example of how to add a `disabled` attribute to a button in the DOM.
-
-```html
-<button class="clear-messages">Clear messages</button>
-```
-
-```js
-// This will disable the first button with a class of "button-message"
-document.getElementsByClassName("clear-messages")[0].setAttribute("disabled", true);
-```
-
 
 ## Bonus criteria
 
@@ -130,7 +87,7 @@ var users = {
 
 1. Only show the last 20 messages.
 
-### Timestamp
+### :white_check_mark: Timestamp
 
-1. Put a timestamp on each message.
-1. Again, this will change the structure of your JSON file.
+1. :white_check_mark: Put a timestamp on each message.
+1. A:white_check_mark: gain, this will change the structure of your JSON file.

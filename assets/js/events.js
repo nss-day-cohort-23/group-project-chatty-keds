@@ -43,7 +43,7 @@ const enterListen = () => {
     let check = event.key === "Enter" && inputId === "msgInput" && event.target.value.trim() !== "";
     if (check){
       const inputElm = document.getElementById(inputId);
-      add.addMessage(event.target.value, null);
+      add.addMessage(event.target.value, null, 1);
       inputElm.value = '';
     }
   });
