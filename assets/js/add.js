@@ -3,6 +3,7 @@
 let Chatty = [];
 const timestamper = require("./timestamper");
 const dateReader = require("./date-reader");
+const clearMsgsDisable = require("./clear-disable");
 
 const addMessage = (string, timestamp) => {
     if (!timestamp) {
@@ -15,6 +16,7 @@ const addMessage = (string, timestamp) => {
     let container = document.getElementById("message-container");
     // add message to DOM
     container.appendChild(msgElm);
+    clearMsgsDisable.enable(Chatty.length);
 };
 
 const createMsgElm = (message) => {
@@ -66,7 +68,8 @@ const deleteMessage = id => {
     if (matchingMessages.length > 0) {
         let targetMessage = [...matchingMessages][0];
         let targetIndex = Chatty.indexOf(targetMessage);
-        Chatty = Chatty.splice(targetIndex, 1);
+        Chatty.splice(targetIndex, 1);
+        clearMsgsDisable.disable(Chatty.length);
         return true;
     } else {
         return false;
