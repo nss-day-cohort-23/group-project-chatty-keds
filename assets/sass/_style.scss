@@ -3,6 +3,10 @@ body {
     color: $text;
 }
 
+.font-large {
+    font-size: 1.5rem;
+}
+
 #message-container {
     border: 1px solid $border;
     padding: 1rem;

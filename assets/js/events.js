@@ -2,7 +2,8 @@
 
 const add = require("./add");
 const deleter = require('./delete');
-// const sizer = require("./text-sizer");
+const sizer = require("./text-sizer");
+const styler = require("./themes");
 
 const clickListen = () => {
   document.body.addEventListener("click", event => {
@@ -24,6 +25,11 @@ const changeListen = () => {
     }
     if (event.target.parentNode.id === "theme-changer") {
       console.log("Hey there the theme-changer checkbox works");
+      if (event.target.checked) {
+        styler.setStylesheet("assets/css/dark.css");
+      } else {
+        styler.setStylesheet("assets/css/light.css");
+      }
     }
   });
 };
