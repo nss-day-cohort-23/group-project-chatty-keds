@@ -2,11 +2,15 @@
 
 const messenger = require("./messages");
 const domController = require("./dom-output");
+const timestamper = require("./timestamper");
 
 const addMessage = (string, timestamp) => {
-    let id = messenger.saveMessage(string, timestamp);
-    console.log(id);
-    let msgElm = domController.createMsgElm(string, id);
+    if (!timestamp) {
+      timestamp = timestamper();
+    }
+    console.log(timestamp);
+    messenger.saveMessage(string, timestamp);
+    let msgElm = domController.createMsgElm(string, timestamp);
     let container = document.getElementById("message-container");
     container.appendChild(msgElm);
 };
@@ -24,15 +28,11 @@ const fetchMessages = filename => {
     request.send();
 };
 
-const parseMessages = () => {
+const parseMessages = event => {
     let data = JSON.parse(event.target.responseText);
     let messages = data.messages;
     messages.forEach(message => {
-        let timestamp = Date.now();
-        if (message.timestamp) {
-            timestamp = message.timestamp;
-        }
-        addMessage(message.body, timestamp);
+        addMessage(message.body, message.timestamp);
     });
 };
 
