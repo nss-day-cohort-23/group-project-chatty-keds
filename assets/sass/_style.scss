@@ -14,6 +14,10 @@ body {
 }
 
 nav {
+    #logo {
+        font-family: "Pacifico", serif;
+        font-size: 2rem;
+    }
     background: $nav-bg;
     label.btn-secondary, .input-group-addon {
         background: $accent;
@@ -85,13 +89,14 @@ nav {
     .meta {
         background: $bg;
         padding-right: .5em;
-        margin-top: -2.1em;
+        margin-top: -2.3em;
         margin-bottom: 1.75em;
         display: inline-block;
         position: absolute;
         .user {
-            font-size: 1.3em;
+            font-size: 1.5em;
             margin-right: .5em;
+            font-family: "Pacifico";
         }
         .timestamp {
             color: rgba($text, .5);
