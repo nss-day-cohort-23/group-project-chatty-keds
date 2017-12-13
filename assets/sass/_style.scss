@@ -16,9 +16,30 @@ body {
 nav {
     #logo {
         font-family: "Pacifico", serif;
-        font-size: 2rem;
+        @media screen and (min-width: 10rem) {
+            font-size: 2rem;
+        }
     }
     background: $nav-bg;
+    .btn-group {
+        justify-content: center;
+        label.btn-secondary, .input-group-addon {
+            background: $accent;
+            color: $nav-bg;
+            border-color: darken($accent, 10%);
+            &:hover {
+                background: darken($accent, 10%);
+                border-color: darken($accent, 20%);
+                color: $nav-bg;
+            }
+            &:active, &:focus {
+                background: darken($accent, 10%) !important;
+                border-color: darken($accent, 10%) !important;
+                box-shadow: 0 0 0 0.2rem rgba($accent,.5) !important;
+                color: $nav-bg !important;
+            }
+        }
+    }
     label.btn-secondary, .input-group-addon {
         background: $accent;
         color: $nav-bg;
