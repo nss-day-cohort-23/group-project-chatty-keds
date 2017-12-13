@@ -1,10 +1,11 @@
 "use strict";
 
 const fetcher = require("./fetch");
+const listeners = require('./events');
 
 const init = () => {
     fetcher.fetchMessages("assets/json/messages.json");
-    // TODO activate events
+    listeners.addListeners();
 };
 
 module.exports = {init};

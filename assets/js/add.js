@@ -5,7 +5,7 @@ const timestamper = require("./timestamper");
 
 const addMessage = (string, timestamp) => {
     if (!timestamp) {
-      timestamp = timestamper();
+      timestamp = timestamper.stamper();
     }
     // add message to array
     let message = saveMessage(string, timestamp);
@@ -22,20 +22,20 @@ const createMsgElm = (message) => {
     const msgWrapper = document.createElement("div");
     msgWrapper.id = `${id}`;
     msgWrapper.className = "message-wrapper";
-  
+
     const msgContent = document.createElement("span");
     msgContent.className = "message-box";
-  
+
     const msgContentTextNode = document.createTextNode(text);
     msgContent.appendChild(msgContentTextNode);
-  
+
     const msgDeleteBtn = document.createElement("button");
     msgDeleteBtn.className = "delete-button";
     msgDeleteBtn.innerText = "Delete";
-  
+
     msgWrapper.appendChild(msgContent);
     msgWrapper.appendChild(msgDeleteBtn);
-  
+
     return msgWrapper;
 };
 
