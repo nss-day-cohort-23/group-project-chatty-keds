@@ -37,7 +37,8 @@ const changeListen = () => {
 const enterListen = () => {
   document.body.addEventListener("keypress", event => {
     const inputId = event.target.id;
-    if (event.key === "Enter" && inputId === "msgInput"){
+    let check = event.key === "Enter" && inputId === "msgInput" && event.target.value.trim() !== "";
+    if (check){
       const inputElm = document.getElementById(inputId);
       add.addMessage(event.target.value, null);
       inputElm.value = '';
