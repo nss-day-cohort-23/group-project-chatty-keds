@@ -18,7 +18,7 @@ Check out the [simple wireframe](https://app.moqups.com/chortlehoort/uGBbLbK46Y/
 
 ### Options
 
-1. :warning:Create two checkboxes below the message input field. One labeled "Dark theme" and the other labeled "Large text".
+1. :warning: Create two checkboxes below the message input field. One labeled "Dark theme" and the other labeled "Large text".
    - :warning: Not dropdowns.
 1. When the user clicks on the dark theme checkbox, change the background color of your application to a dark gray, and the font color for messages should be white(ish)... you pick.
 1. If the user unchecks the box, the background color should change back to white with black text for messages.
@@ -34,17 +34,17 @@ Check out the [simple wireframe](https://app.moqups.com/chortlehoort/uGBbLbK46Y/
 
 Create multiple modules that perform the following functions. :warning: The name of your global variable that gets augmented by the modules should be `Chatty`.
 
-1. :warning: `fetch.js`
-   - Should load the JSON file and return the array of objects.
-1. :warning: `add.js`
-   - `addMessage(id, string)` Should contain a function that accepts an element `id`, and the user message, and then add the user's message to the specified parent element.
-     - Should also add the delete button.
-   - :warning: Each message should be stored in a private array in this module
-   - `getMessages()` Should also expose a function to read all messages.
-   - `deleteMessage(id)` Should expose a function to delete a single message.
-1. :warning: `delete.js`
-   - `deleteMessage(id)`: Should accept a message element `id` and then remove the correct element from the DOM.
-   - Should also remove the corresponding message from the private array that was created in the previous module.
+1. :white_check_mark: `fetch.js`
+   - :white_check_mark: Should load the JSON file and return the array of objects.
+1. :white_check_mark: `add.js`
+   - :white_check_mark: `addMessage(id, string)` Should contain a function that accepts an element `id`, and the user message, and then add the user's message to the specified parent element.
+     - :alert: Should also add the delete button.
+   - :white_check_mark: Each message should be stored in a private array in this module called `Chatty`.
+   - :white_check_mark: `getMessages()` Should also expose a function to read all messages.
+   - :white_check_mark: `deleteMessage(id)` Should expose a function to delete a single message.
+1. :white_check_mark: `delete.js`
+   - :white_check_mark: `deleteMessage(id)`: Should accept a message element `id` and then remove the correct element from the DOM.
+   - :white_check_mark: Should also remove the corresponding message from the private array that was created in the previous module.
 
 ## Helpful hints
 
