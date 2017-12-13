@@ -3,12 +3,16 @@
 const week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 const getReadableTime = timestamp => {
-    let date = new Date(timestamp*1000);    
+    let date = new Date(timestamp);
 
     let hours = date.getHours();
     let m = " am";
-    if (hours > 12) {
+    if (hours == 0) {
+        hours = 12;
+    } else if (hours > 11) {
         m = " pm";
+    }
+    if (hours > 12) {
         hours %= 12;
     }
 
