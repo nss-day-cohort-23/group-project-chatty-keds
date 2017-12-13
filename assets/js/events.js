@@ -2,7 +2,7 @@
 
 const add = require("./add");
 const deleter = require('./delete');
-
+const sizer = require("./text-sizer");
 
 const clickListen = () => {
   document.body.addEventListener("click", event => {
@@ -17,14 +17,16 @@ const clickListen = () => {
   });
 };
 
-document.body.addEventListener("change", event => {
-  // if (event.target.id === "sizeSelect") {
-  //   event.target.value;
-  // }
-  // if (event.target.id === "themeSelect") {
-  //   event.target.value;
-  // }
-});
+const changeListen = () => {
+  document.body.addEventListener("change", event => {
+    if (event.target.parentNode.id === "text-sizer") {
+      console.log("Hey the text-sizer checkbox works");
+    }
+    if (event.target.parentNode.id === "theme-changer") {
+      console.log("Hey there the theme-changer checkbox works");
+    }
+  });
+}
 
 const enterListen = () => {
   document.body.addEventListener("keypress", event => {
@@ -38,6 +40,7 @@ const enterListen = () => {
 };
 
 module.exports.addListeners = () => {
+  changeListen();
   clickListen();
   enterListen();
 };
