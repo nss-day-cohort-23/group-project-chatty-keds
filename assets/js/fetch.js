@@ -9,7 +9,7 @@ const fetchMessages = filename => {
     request.send();
 };
 
-const parseMessages = () => {
+const parseMessages = event => {
     let data = JSON.parse(event.target.responseText);
     let messages = data.messages;
     messages.forEach(message => {
