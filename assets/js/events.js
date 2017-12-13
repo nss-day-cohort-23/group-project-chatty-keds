@@ -1,20 +1,19 @@
 "use strict";
 
 const add = require("./add");
-// const delete = require('./delete');
+const deleter = require('./delete');
 
 
 const clickListen = () => {
   document.body.addEventListener("click", event => {
-    // console.log(event);
-    // if (event.target.parent === "msgWrapper") {
-    //   router.removeMessage(event.target.parent.id);
-    // }
-    // if (event.target.id === "clearMsgs") {
-    //   [...document.getElementsByClassName("message-wrapper")].forEach(item => {
-    //     router.removeMessage(item.id);
-    //   });
-    // }
+    if (event.target.parentNode.className === "message-wrapper") {
+      deleter.deleteMessage(event.target.parentNode.id);
+    }
+    if (event.target.id === "clearMsgs") {
+      [...document.getElementsByClassName("message-wrapper")].forEach(item => {
+        deleter.deleteMessage(item.id);
+      });
+    }
   });
 };
 
@@ -26,6 +25,7 @@ document.body.addEventListener("change", event => {
   //   event.target.value;
   // }
 });
+
 const enterListen = () => {
   document.body.addEventListener("keypress", event => {
     const inputId = event.target.id;
