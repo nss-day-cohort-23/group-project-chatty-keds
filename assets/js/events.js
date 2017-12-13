@@ -2,7 +2,7 @@
 
 const add = require("./add");
 const deleter = require('./delete');
-const sizer = require("./text-sizer");
+// const sizer = require("./text-sizer");
 
 const clickListen = () => {
   document.body.addEventListener("click", event => {
