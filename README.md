@@ -26,8 +26,8 @@ Check out the [simple wireframe](https://app.moqups.com/chortlehoort/uGBbLbK46Y/
 ### Messages
 
 1. :white_check_mark: When the page is first loaded, you must load 5 messages from a local JSON file and pre-fill a message area `<div>` below the input field that will also hold all new messages as they get created.
-1. :white_check_mark:When the user presses the return key in the message field, the new message should be inserted into the message area.
-1. :white_check_mark:The message should have a button displayed after it with the text "Delete" inside of it.
+1. :white_check_mark: When the user presses the return key in the message field, the new message should be inserted into the message area.
+1. :white_check_mark: The message should have a button displayed after it with the text "Delete" inside of it.
    - :white_check_mark: Not an `X` icon.
    - :white_check_mark: When the delete button next to a message is clicked, only that message should be removed from the DOM.
 
