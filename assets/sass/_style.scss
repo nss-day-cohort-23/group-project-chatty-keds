@@ -13,6 +13,49 @@ body {
     padding: 1rem;
 }
 
+nav {
+    background: $nav-bg;
+    label.btn-secondary, .input-group-addon {
+        background: $accent;
+        color: $nav-bg;
+        border-color: darken($accent, 10%);
+        &:hover {
+            background: darken($accent, 10%);
+            border-color: darken($accent, 20%);
+            color: $nav-bg;
+        }
+        &:active, &:focus {
+            background: darken($accent, 10%) !important;
+            border-color: darken($accent, 10%) !important;
+            box-shadow: 0 0 0 0.2rem rgba($accent,.5) !important;
+            color: $nav-bg !important;
+        }
+    }
+}
+
+.btn-danger {
+    background: $button;
+    color: $bg;
+    cursor: pointer;
+    border-color: $button;
+    &.disabled {
+        color: $bg;
+        background: $button;
+        border-color: $button;
+    }
+    &:hover {
+        background-color: darken($button, 10%);
+        border-color: darken($button, 10%);
+    }
+    &:active, &:focus {
+        box-shadow: 0 0 0 0.2rem rgba($button,.5) !important;
+        border-color: darken($button, 10%) !important;
+    }
+    &:active {
+        background-color: darken($button, 10%) !important;
+    }
+}
+
 .message-wrapper {
     padding: 1em 0 .5em 0;
     border-top: 1px dotted transparent;
