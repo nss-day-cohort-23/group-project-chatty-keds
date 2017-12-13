@@ -13,9 +13,9 @@ body {
 }
 
 .message-wrapper {
-    padding: .75em 0 .5em 0;
+    padding: 1em 0 .5em 0;
     border-top: 1px dotted transparent;
-    margin-top: 1rem;
+    margin-top: 1.25rem;
     .btn {
         float: right;
         cursor: pointer;
@@ -41,13 +41,13 @@ body {
     .meta {
         background: $bg;
         padding-right: .5em;
-        margin-top: -1.5em;
-        margin-bottom: 1.5em;
+        margin-top: -2.1em;
+        margin-bottom: 1.75em;
         display: inline-block;
         position: absolute;
         .user {
-            font-weight: bold;
-            margin-right: 1em;
+            font-size: 1.3em;
+            margin-right: .5em;
         }
         .timestamp {
             color: rgba($text, .5);

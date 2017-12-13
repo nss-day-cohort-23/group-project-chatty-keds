@@ -4,7 +4,7 @@ const fetcher = require("./fetch");
 const listeners = require('./events');
 
 const init = () => {
-    fetcher.fetchMessages("assets/json/messages.json");
+    fetcher.fetchUsers("assets/json/users.json");
     listeners.addListeners();
 };
 

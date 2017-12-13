@@ -1,6 +1,7 @@
 "use strict";
 
 let Chatty = [];
+let chatters = [];
 const timestamper = require("./timestamper");
 const dateReader = require("./date-reader");
 
@@ -20,7 +21,10 @@ const addMessage = (string, timestamp, user) => {
 const createMsgElm = (message) => {
     let id = message.timestamp;
     let text = message.body;
-    let user = message.user;
+    let userId = message.user;
+    let user = chatters.filter(chatter => chatter.id == userId);
+    let username = [...user][0].username;
+
     const msgWrapper = document.createElement("div");
     msgWrapper.id = `${id}`;
     msgWrapper.className = "message-wrapper";
@@ -39,7 +43,7 @@ const createMsgElm = (message) => {
     msgMeta.classList = "meta";
 
     const msgUser = document.createElement("span");
-    msgUser.innerText = user;
+    msgUser.innerText = username;
     msgUser.classList = "user";
     msgMeta.appendChild(msgUser);
 
@@ -80,4 +84,13 @@ const deleteMessage = id => {
     }
 };
 
-module.exports = {addMessage, deleteMessage};
+const saveUser = (id, username) => {
+    let user = {id, username};
+    chatters.push(user);
+};
+
+const getUsers = () => {
+    return chatters;
+};
+
+module.exports = {addMessage, deleteMessage, saveUser, getUsers};
