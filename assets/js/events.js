@@ -2,7 +2,7 @@
 
 const add = require("./add");
 const deleter = require('./delete');
-const sizer = require("./text-sizer");
+// const sizer = require("./text-sizer");
 
 const clickListen = () => {
   document.body.addEventListener("click", event => {
@@ -26,7 +26,7 @@ const changeListen = () => {
       console.log("Hey there the theme-changer checkbox works");
     }
   });
-}
+};
 
 const enterListen = () => {
   document.body.addEventListener("keypress", event => {
