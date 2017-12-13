@@ -13,7 +13,7 @@ const parseMessages = event => {
     let data = JSON.parse(event.target.responseText);
     let messages = data.messages;
     messages.forEach(message => {
-        adder.addMessage(message.body, message.timestamp);
+        adder.addMessage(message.body, message.timestamp, message.user);
     });
 };
 

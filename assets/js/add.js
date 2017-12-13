@@ -4,12 +4,12 @@ let Chatty = [];
 const timestamper = require("./timestamper");
 const dateReader = require("./date-reader");
 
-const addMessage = (string, timestamp) => {
+const addMessage = (string, timestamp, user) => {
     if (!timestamp) {
       timestamp = timestamper.stamper();
     }
     // add message to array
-    let message = saveMessage(string, timestamp);
+    let message = saveMessage(string, timestamp, user);
     // get DOM element to add
     let msgElm = createMsgElm(message);
     let container = document.getElementById("message-container");
@@ -20,6 +20,7 @@ const addMessage = (string, timestamp) => {
 const createMsgElm = (message) => {
     let id = message.timestamp;
     let text = message.body;
+    let user = message.user;
     const msgWrapper = document.createElement("div");
     msgWrapper.id = `${id}`;
     msgWrapper.className = "message-wrapper";
@@ -34,24 +35,30 @@ const createMsgElm = (message) => {
     msgDeleteBtn.className = "delete-button btn btn-outline-danger btn-sm ml-3";
     msgDeleteBtn.innerText = "Delete";
 
-    const msgTimestamp = document.createElement("div");
-    msgTimestamp.classList = "timestamp";
+    const msgMeta = document.createElement("div");
+    msgMeta.classList = "meta";
+
+    const msgUser = document.createElement("span");
+    msgUser.innerText = user;
+    msgUser.classList = "user";
+    msgMeta.appendChild(msgUser);
+
+    const msgTimestamp = document.createElement("span");
     let readableTime = `${dateReader.getReadableTime(id)}`;
     msgTimestamp.innerText = readableTime;
+    msgTimestamp.classList = "timestamp";
+    msgMeta.appendChild(msgTimestamp);
 
     msgWrapper.appendChild(msgDeleteBtn);
-    msgWrapper.appendChild(msgTimestamp);
+    msgWrapper.appendChild(msgMeta);
     msgWrapper.appendChild(msgContent);
 
     return msgWrapper;
 };
 
 
-const saveMessage = (content, timestamp) => {
-    let message = {
-        "body": content,
-        "timestamp": timestamp,
-    };
+const saveMessage = (body, timestamp, user) => {
+    let message = {body, timestamp, user};
     Chatty.push(message);
     return message;
 };

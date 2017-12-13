@@ -38,13 +38,19 @@ body {
     &:hover {
         border-color: $border;
     }
-    .timestamp {
+    .meta {
         background: $bg;
         padding-right: .5em;
         margin-top: -1.5em;
         margin-bottom: 1.5em;
         display: inline-block;
         position: absolute;
-        color: rgba($text, .5);
+        .user {
+            font-weight: bold;
+            margin-right: 1em;
+        }
+        .timestamp {
+            color: rgba($text, .5);
+        }
     }
 }
