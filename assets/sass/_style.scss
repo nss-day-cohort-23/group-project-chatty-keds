@@ -1,0 +1,45 @@
+body {
+    background: $bg;
+    color: $text;
+}
+
+#message-container {
+    border: 1px solid $border;
+    padding: 1rem;
+}
+
+.message-wrapper {
+    padding: .75rem 0 .5rem 0;
+    border-top: 1px dotted transparent;
+    margin-top: 1rem;
+    .btn {
+        float: right;
+        cursor: pointer;
+        padding-top: .1rem;
+        padding-bottom: .1rem;
+        &.btn-outline-danger {
+            border-color: $button;
+            color: $button;
+            &:hover, &:active {
+                color: $bg;
+                background: $button;
+                border-color: $button;
+            }
+            &:focus, &:active {
+                box-shadow: 0 0 0 0.2rem rgba($button,.5)
+            }
+        }
+    }
+    &:hover {
+        border-color: $border;
+    }
+    .timestamp {
+        background: $bg;
+        padding-right: .5rem;
+        margin-top: -1.5rem;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        position: absolute;
+        color: rgba($text, .5);
+    }
+}

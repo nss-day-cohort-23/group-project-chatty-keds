@@ -35,7 +35,7 @@ const createMsgElm = (message) => {
     msgDeleteBtn.innerText = "Delete";
 
     const msgTimestamp = document.createElement("div");
-    msgTimestamp.classList = "text-muted timestamp";
+    msgTimestamp.classList = "timestamp";
     let readableTime = `${dateReader.getReadableTime(id)}`;
     msgTimestamp.innerText = readableTime;
     
