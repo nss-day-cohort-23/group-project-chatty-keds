@@ -2,6 +2,7 @@
 
 let Chatty = [];
 const timestamper = require("./timestamper");
+const dateReader = require("./date-reader");
 
 const addMessage = (string, timestamp) => {
     if (!timestamp) {
@@ -30,11 +31,17 @@ const createMsgElm = (message) => {
     msgContent.appendChild(msgContentTextNode);
 
     const msgDeleteBtn = document.createElement("button");
-    msgDeleteBtn.className = "delete-button";
+    msgDeleteBtn.className = "delete-button btn btn-outline-danger btn-sm ml-3";
     msgDeleteBtn.innerText = "Delete";
 
-    msgWrapper.appendChild(msgContent);
+    const msgTimestamp = document.createElement("div");
+    msgTimestamp.classList = "text-muted timestamp";
+    let readableTime = `${dateReader.getReadableTime(id)}`;
+    msgTimestamp.innerText = readableTime;
+
     msgWrapper.appendChild(msgDeleteBtn);
+    msgWrapper.appendChild(msgTimestamp);
+    msgWrapper.appendChild(msgContent);
 
     return msgWrapper;
 };

@@ -24,6 +24,7 @@ Check out the [simple wireframe](https://app.moqups.com/chortlehoort/uGBbLbK46Y/
 1. If the user unchecks the box, the background color should change back to white with black text for messages.
 
 ### Messages
+
 1. :white_check_mark: When the page is first loaded, you must load 5 messages from a local JSON file and pre-fill a message area `<div>` below the input field that will also hold all new messages as they get created.
 1. When the user presses the return key in the message field, the new message should be inserted into the message area.
 1. The message should have a button displayed after it with the text "Delete" inside of it.
@@ -32,7 +33,7 @@ Check out the [simple wireframe](https://app.moqups.com/chortlehoort/uGBbLbK46Y/
 
 ### Modular Code
 
-Create multiple modules that perform the following functions. :warning: The name of your global variable that gets augmented by the modules should be `Chatty`.
+Create multiple modules that perform the following functions. :white_check_mark: The name of your global variable that gets augmented by the modules should be `Chatty`.
 
 1. :white_check_mark: `fetch.js`
    - :white_check_mark: Should load the JSON file and return the array of objects.
