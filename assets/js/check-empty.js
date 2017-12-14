@@ -1,5 +1,7 @@
 "use strict";
 
+const router = require('./messages-router');
+
 const clearMsgs = document.getElementById("clearMsgs");
 const emptyMsg = document.getElementById("empty-msg");
 
@@ -20,9 +22,8 @@ const hideEmptyMsg = () => {
 };
 
 const checkMsgCount = () => {
-    const adder = require('./add');
-    let msgs = adder.getMessages();
-	if (msgs.length > 0) {
+    let msgs = router.getMsgs();
+	if (msgs && msgs.length > 0) {
         enableClearBtn();
         hideEmptyMsg();
 	} else {

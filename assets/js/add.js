@@ -1,16 +1,16 @@
 "use strict";
 
-let Chatty = [];
-let chatters = [];
 const timestamper = require("./timestamper");
 const dateReader = require("./date-reader");
 const checkEmpty = require("./check-empty");
+const router = require("./messages-router");
 
-const addMessage = (string, timestamp, user) => {
+const addMessage = (body, timestamp, user) => {
     if (!timestamp) {
       timestamp = timestamper.stamper();
     }
-    let message = saveMessage(string, timestamp, user);
+    let message = {body, timestamp, user};
+    console.log(message);
     let msgElm = createMsgElm(message);
     let container = document.getElementById("message-container");
     container.appendChild(msgElm);
@@ -21,7 +21,8 @@ const createMsgElm = (message) => {
     let id = message.timestamp;
     let text = message.body;
     let userId = message.user;
-    let user = chatters.filter(chatter => chatter.id == userId);
+    let users = router.getUsers();
+    let user = users.filter(chatter => chatter.id == userId);
     let username = [...user][0].username;
 
     const msgWrapper = document.createElement("div");
@@ -59,38 +60,4 @@ const createMsgElm = (message) => {
     return msgWrapper;
 };
 
-
-const saveMessage = (body, timestamp, user) => {
-    let message = {body, timestamp, user};
-    Chatty.push(message);
-    return message;
-};
-
-const getMessages = () => {
-    return Chatty;
-};
-
-const deleteMessage = id => {
-    // return all messages with the above id
-    let matchingMessages = Chatty.filter(message => message.timestamp == id);
-    if (matchingMessages.length > 0) {
-        let targetMessage = [...matchingMessages][0];
-        let targetIndex = Chatty.indexOf(targetMessage);
-        Chatty.splice(targetIndex, 1);
-        checkEmpty.checkMsgCount();
-        return true;
-    } else {
-        return false;
-    }
-};
-
-const saveUser = (id, username) => {
-    let user = {id, username};
-    chatters.push(user);
-};
-
-const getUsers = () => {
-    return chatters;
-};
-
-module.exports = {addMessage, deleteMessage, saveUser, getUsers, getMessages};
+module.exports = {addMessage};

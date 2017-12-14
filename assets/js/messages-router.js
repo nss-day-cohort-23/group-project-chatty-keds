@@ -8,6 +8,15 @@ const usersReq = require("./users.js");
 let messages = [];
 let users = [];
 
+module.exports.getMsgs = () => {
+    console.log(messages);
+    return messages;
+};
+
+module.exports.getUsers = () => {
+    return users;
+};
+
 module.exports.routeFetch = (key, data) => {
     if (key === "messages" && data !== null) {
         messages = data;
@@ -16,9 +25,6 @@ module.exports.routeFetch = (key, data) => {
         });
     } else if (key === "users") {
         users = data;
-        data.forEach(item => {
-            adder.saveUser(item.id, item.username);
-        });
         usersReq.displayUsers(users);
     }
 };
