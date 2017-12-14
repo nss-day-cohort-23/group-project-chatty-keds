@@ -4,7 +4,7 @@ let Chatty = [];
 let chatters = [];
 const timestamper = require("./timestamper");
 const dateReader = require("./date-reader");
-const clearMsgsDisable = require("./clear-disable");
+const checkEmpty = require("./check-empty");
 
 const addMessage = (string, timestamp, user) => {
     if (!timestamp) {
@@ -14,7 +14,7 @@ const addMessage = (string, timestamp, user) => {
     let msgElm = createMsgElm(message);
     let container = document.getElementById("message-container");
     container.appendChild(msgElm);
-    clearMsgsDisable.enable(Chatty.length);
+    checkEmpty.checkMsgCount();
 };
 
 const createMsgElm = (message) => {
@@ -77,7 +77,7 @@ const deleteMessage = id => {
         let targetMessage = [...matchingMessages][0];
         let targetIndex = Chatty.indexOf(targetMessage);
         Chatty.splice(targetIndex, 1);
-        clearMsgsDisable.disable(Chatty.length);
+        checkEmpty.checkMsgCount();
         return true;
     } else {
         return false;
@@ -93,4 +93,4 @@ const getUsers = () => {
     return chatters;
 };
 
-module.exports = {addMessage, deleteMessage, saveUser, getUsers};
+module.exports = {addMessage, deleteMessage, saveUser, getUsers, getMessages};

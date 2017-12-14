@@ -4,7 +4,7 @@ const msgRouter = require("./messages-router");
 const time = require("./timestamper");
 const sizer = require("./text-sizer");
 const styler = require("./themes");
-const clearMsgsDisable = require("./clear-disable");
+const checkEmpty = require("./check-empty");
 
 const clickListen = () => {
     document.body.addEventListener("click", event => {
@@ -16,9 +16,8 @@ const clickListen = () => {
             [...document.getElementsByClassName("message-wrapper")].forEach(item => {
                 msgRouter.deletes(item.id);
             });
-
-            clearMsgsDisable.disable(0);
         }
+		checkEmpty.checkMsgCount();
     });
 };
 
