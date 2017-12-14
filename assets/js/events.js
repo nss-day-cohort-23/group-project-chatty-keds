@@ -51,26 +51,6 @@ const enterListen = () => {
 	});
 };
 
-module.exports.focusTextarea = textarea => {
-	textarea.style.height = `${textarea.scrollHeight+2}px`;
-	textarea.addEventListener("keypress", unfocusTextarea);
-	textarea.addEventListener("blur", unfocusTextarea);
-};
-
-const unfocusTextarea = event => {
-	let textarea = event.target;
-	let msg = document.createElement("span");
-	let parent = textarea.parentNode;
-	if (event.type == "keypress" && event.key == "Enter" || event.type == "blur") {
-		msg.classList = "message-box";
-		msg.innerText = textarea.value;
-		textarea.removeEventListener("keypress", unfocusTextarea);
-		textarea.removeEventListener("blur", unfocusTextarea);
-		textarea.remove();
-		parent.appendChild(msg);
-	}
-};
-
 const getSelectedUserId = () => {
 	let users = document.getElementById("users");
 	let activeUser = [...users.getElementsByClassName("active")][0];

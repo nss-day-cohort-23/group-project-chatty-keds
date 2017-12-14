@@ -1,6 +1,7 @@
 "use strict";
 
 const events = require("./events");
+const domController = require("./dom");
 
 const editMessage = id => {
     let msgWrapper = document.getElementById(id);
@@ -14,7 +15,7 @@ const editMessage = id => {
     textarea.classList = "edit-msg";
     msgWrapper.appendChild(textarea);
     textarea.focus();
-    events.focusTextarea(textarea);
+    domController.focusTextarea(textarea);
 };
 
 module.exports = {editMessage};
