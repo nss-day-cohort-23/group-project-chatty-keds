@@ -4,7 +4,7 @@ const add = require("./add");
 const deleter = require('./delete');
 const sizer = require("./text-sizer");
 const styler = require("./themes");
-const clearMsgsDisable = require("./clear-disable");
+const checkEmpty = require("./check-empty");
 
 const clickListen = () => {
 	document.body.addEventListener("click", event => {
@@ -16,9 +16,8 @@ const clickListen = () => {
 			[...document.getElementsByClassName("message-wrapper")].forEach(item => {
 				deleter.deleteMessage(item.id);
 			});
-
-			clearMsgsDisable.disable(0);
 		}
+		checkEmpty.checkMsgCount();
 	});
 };
 
