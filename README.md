@@ -72,7 +72,7 @@ Instead of having one JSON file with five messages in it, break each message int
 ### Multiple users
 
 1. :white_check_mark: Create an object in your JavaScript that holds an array of names (*see example below*).
-1. Next to the message input box, there should be a radio button group for each name in the list.
+1. :white_check_mark: Next to the message input box, there should be a radio button group for each name in the list.
 1. :white_check_mark: When a user enters a message, it should be prepended with the chosen user's name, in bold text.
 1. :white_check_mark: Keep in mind that this will likely change the structure of your JSON file since the pre-loaded messages have to have this information on them.
 
