@@ -5,6 +5,7 @@ const time = require("./timestamper");
 const sizer = require("./text-sizer");
 const styler = require("./themes");
 const checkEmpty = require("./check-empty");
+const users = require("./users")
 
 const clickListen = () => {
     document.body.addEventListener("click", event => {
@@ -42,18 +43,10 @@ const enterListen = () => {
         let check = event.key === "Enter" && inputId === "msgInput" && event.target.value.trim() !== "";
         if (check) {
             const inputElm = document.getElementById(inputId);
-            msgRouter.new(event.target.value, time.stamper(), getSelectedUserId());
+            msgRouter.new(event.target.value, time.stamper(), users.getUserId());
             inputElm.value = '';
         }
     });
-};
-
-const getSelectedUserId = () => {
-    let users = document.getElementById("users");
-    let activeUser = [...users.getElementsByClassName("active")][0];
-    let input = activeUser.childNodes[0];
-    let activeUserId = input.id;
-    return activeUserId;
 };
 
 module.exports.addListeners = () => {

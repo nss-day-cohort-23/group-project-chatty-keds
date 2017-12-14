@@ -5,12 +5,11 @@ const dateReader = require("./date-reader");
 const checkEmpty = require("./check-empty");
 const router = require("./messages-router");
 
-const addMessage = (body, timestamp, user) => {
+const addMessage = (data) => {
     if (!timestamp) {
       timestamp = timestamper.stamper();
     }
-    let message = {body, timestamp, user};
-    let msgElm = createMsgElm(message);
+    let msgElm = createMsgElm(data);
     let container = document.getElementById("message-container");
     container.appendChild(msgElm);
     checkEmpty.checkMsgCount();
