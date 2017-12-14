@@ -36,12 +36,6 @@ module.exports.new = (body, timestamp, user) => {
 };
 
 module.exports.deletes = num => {
-    deleter.deleteMessage(num);
-    messages.forEach((item) => {
-        if (item.timestamp == num) {
-            let idx = messages.indexOf(item);
-            messages.splice(idx, 1);
-        }
-    });
+    messages = deleter.deleteMessage(num, messages);
     setter.save("messages", messages);
 };
