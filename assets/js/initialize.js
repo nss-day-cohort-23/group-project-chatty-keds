@@ -1,11 +1,15 @@
 "use strict";
-
-const fetcher = require("./fetch");
 const listeners = require('./events');
+const getLocalStorage = require("./get-local-storage");
 
 const init = () => {
-    fetcher.fetchUsers("assets/json/users.json");
+    getLocalStorage.fetch("users");
+    getLocalStorage.fetch("themes");
+    getLocalStorage.fetch("sizer");
+    getLocalStorage.fetch("messages");
     listeners.addListeners();
 };
 
-module.exports = {init};
+module.exports = {
+    init
+};
