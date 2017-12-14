@@ -2,16 +2,19 @@
 const listeners = require('./events');
 const setLocalStorage = require("./set-local-storage");
 const getLocalStorage = require("./get-local-storage");
-const testMsg = [
-    {"body": "Nunc nisi adipiscing pellentesque lacus? Platea vel lundium facilisis",
-    "timestamp": 1513108861000,
-    "user": 1}
-];
 
 const testUser = [{
-    "id": 1,
-    "username": "luke"
-}];
+        "id": 1,
+        "username": "Luke"
+    },
+    {
+        "id": 2,
+        "username": "Leia"
+    }, {
+        "id": 3,
+        "username": "Han"
+    }
+];
 const init = () => {
     setLocalStorage.save("users", testUser);
 

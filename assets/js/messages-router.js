@@ -9,7 +9,7 @@ let messages = [];
 let users = [];
 
 module.exports.routeFetch = (key, data) => {
-    if (key === "messages") {
+    if (key === "messages" && data !== null) {
         messages = data;
         data.forEach(item => {
             adder.addMessage(item.body, item.timestamp, item.user);
