@@ -68,6 +68,10 @@ nav {
     box-shadow: 0 0 0 0.2rem rgba($button,.5) !important;
 }
 
+textarea.edit-msg {
+    width: 75%;
+}
+
 .btn-danger, #users label.btn-secondary.active {
     background: $button;
     color: $bg;

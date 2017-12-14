@@ -4,6 +4,7 @@ const adder = require("./add");
 const deleter = require('./delete');
 const sizer = require("./text-sizer");
 const styler = require("./themes");
+const editer = require("./edit");
 
 const clickListen = () => {
 	document.body.addEventListener("click", event => {
@@ -17,7 +18,7 @@ const clickListen = () => {
 			if (classes.search(/delete/gi) != -1) {
 				deleter.deleteMessage(btn.parentNode.id);
 			} else if (classes.search(/edit/gi) != -1) {
-				console.log("editing", btn.parentNode.id);
+				editer.editMessage(btn.parentNode.id);
 			}
 		}
 	});
@@ -48,6 +49,26 @@ const enterListen = () => {
 			inputElm.value = '';
 		}
 	});
+};
+
+module.exports.focusTextarea = textarea => {
+	textarea.style.height = `${textarea.scrollHeight+2}px`;
+	textarea.addEventListener("keypress", unfocusTextarea);
+	textarea.addEventListener("blur", unfocusTextarea);
+};
+
+const unfocusTextarea = event => {
+	let textarea = event.target;
+	let msg = document.createElement("span");
+	let parent = textarea.parentNode;
+	if (event.type == "keypress" && event.key == "Enter" || event.type == "blur") {
+		msg.classList = "message-box";
+		msg.innerText = textarea.value;
+		textarea.removeEventListener("keypress", unfocusTextarea);
+		textarea.removeEventListener("blur", unfocusTextarea);
+		textarea.remove();
+		parent.appendChild(msg);
+	}
 };
 
 const getSelectedUserId = () => {
