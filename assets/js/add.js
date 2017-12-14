@@ -5,6 +5,7 @@ let chatters = [];
 const timestamper = require("./timestamper");
 const dateReader = require("./date-reader");
 const checkEmpty = require("./check-empty");
+const deleter = require("./delete");
 
 const addMessage = (string, timestamp, user) => {
     if (!timestamp) {
@@ -93,4 +94,14 @@ const getUsers = () => {
     return chatters;
 };
 
-module.exports = {addMessage, deleteMessage, saveUser, getUsers, getMessages};
+const trimMessages = () => {
+    if (Chatty.length > 20) {
+        console.log("trimming messages");
+        for (var i=0; i<Chatty.length-20; i++) {
+            console.log(i, Chatty[i].timestamp);
+            deleter.removeMsgElm(Chatty[i].timestamp);
+        }
+    }
+};
+
+module.exports = {addMessage, deleteMessage, saveUser, getUsers, getMessages, trimMessages};

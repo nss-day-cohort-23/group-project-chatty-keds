@@ -3,6 +3,8 @@
 const clearMsgs = document.getElementById("clearMsgs");
 const emptyMsg = document.getElementById("empty-msg");
 
+const adder = require("./add");
+
 const disableClearBtn = () => {
     clearMsgs.classList.add("disabled");
     clearMsgs.disabled = true;
@@ -29,6 +31,7 @@ const checkMsgCount = () => {
         disableClearBtn();
         showEmptyMsg();
     }
+    adder.trimMessages();
 };
 
 module.exports = {checkMsgCount};

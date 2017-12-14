@@ -12,7 +12,8 @@ const deleteMessage = id => {
 const removeMsgElm = id => {
     const msgContainer = document.getElementById("message-container");
     const msgToRemove = document.getElementById(id);
-    msgContainer.removeChild(msgToRemove);
+    console.log(msgToRemove);
+    document.remove(msgToRemove);
 };
 
-module.exports = {deleteMessage};
+module.exports = {deleteMessage, removeMsgElm};
