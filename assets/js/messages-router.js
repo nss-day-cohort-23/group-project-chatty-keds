@@ -3,6 +3,7 @@
 const adder = require("./add");
 const deleter = require("./delete");
 const setter = require("./set-local-storage");
+const usersReq = require("./users.js");
 
 let messages = [];
 let users = [];
@@ -18,6 +19,7 @@ module.exports.routeFetch = (key, data) => {
         data.forEach(item => {
             adder.saveUser(item.id, item.username);
         });
+        usersReq.displayUsers(users);
     }
 };
 
