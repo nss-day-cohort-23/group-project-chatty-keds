@@ -17,24 +17,24 @@ const clickListen = () => {
         msgRouter.deletes(item.id);
       });
 
-      clearMsgsDisable.disable(0);
-    }
-  });
+			clearMsgsDisable.disable(0);
+		}
+	});
 };
 
 const changeListen = () => {
-  document.body.addEventListener("change", event => {
-    if (event.target.parentNode.id === "text-sizer") {
-      sizer.toggleSize();
-    }
-    if (event.target.parentNode.id === "theme-changer") {
-      if (event.target.checked) {
-        styler.setStylesheet("assets/css/dark.css");
-      } else {
-        styler.setStylesheet("assets/css/light.css");
-      }
-    }
-  });
+	document.body.addEventListener("change", event => {
+		if (event.target.parentNode.id === "text-sizer") {
+			sizer.toggleSize();
+		}
+		if (event.target.parentNode.id === "theme-changer") {
+			if (event.target.checked) {
+				styler.setStylesheet("assets/css/dark.css");
+			} else {
+				styler.setStylesheet("assets/css/light.css");
+			}
+		}
+	});
 };
 
 const enterListen = () => {
@@ -43,14 +43,21 @@ const enterListen = () => {
     let check = event.key === "Enter" && inputId === "msgInput" && event.target.value.trim() !== "";
     if (check){
       const inputElm = document.getElementById(inputId);
-      msgRouter.new(event.target.value, time.stamper(), 1);
+      msgRouter.new(event.target.value, time.stamper(), getSelectedUserId());
       inputElm.value = '';
     }
   });
+
+const getSelectedUserId = () => {
+	let users = document.getElementById("users");
+	let activeUser = [...users.getElementsByClassName("active")][0];
+	let input = activeUser.childNodes[0];
+	let activeUserId = input.id;
+	return activeUserId;
 };
 
 module.exports.addListeners = () => {
-  changeListen();
-  clickListen();
-  enterListen();
+		changeListen();
+		clickListen();
+		enterListen();
 };
