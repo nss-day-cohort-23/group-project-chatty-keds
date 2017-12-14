@@ -9,7 +9,6 @@ let messages = [];
 let users = [];
 
 module.exports.getMsgs = () => {
-    console.log(messages);
     return messages;
 };
 
