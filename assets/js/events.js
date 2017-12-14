@@ -60,4 +60,5 @@ module.exports.addListeners = () => {
     changeListen();
     clickListen();
     enterListen();
+	checkEmpty.checkMsgCount();
 };
