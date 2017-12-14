@@ -4,18 +4,21 @@ const adder = require("./add");
 const deleter = require('./delete');
 const sizer = require("./text-sizer");
 const styler = require("./themes");
-const checkEmpty = require("./check-empty");
 
 const clickListen = () => {
 	document.body.addEventListener("click", event => {
-		const deleteBtnCheck = event.target.className.search(/delete-button/);
-		if (deleteBtnCheck > -1) {
-			deleter.deleteMessage(event.target.parentNode.id);
-		}
-		if (event.target.id === "clearMsgs") {
+		const btn = event.target;
+		let classes = btn.classList.value;
+		if (btn.id == "clearMsgs") {
 			[...document.getElementsByClassName("message-wrapper")].forEach(item => {
 				deleter.deleteMessage(item.id);
 			});
+		} else if (classes.search(/-button/gi) != -1) {
+			if (classes.search(/delete/gi) != -1) {
+				deleter.deleteMessage(btn.parentNode.id);
+			} else if (classes.search(/edit/gi) != -1) {
+				console.log("editing", btn.parentNode.id);
+			}
 		}
 	});
 };
