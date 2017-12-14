@@ -5,7 +5,6 @@ const deleter = require('./delete');
 const sizer = require("./text-sizer");
 const styler = require("./themes");
 const editer = require("./edit");
-const domController = require("./dom");
 
 const clickListen = () => {
 	document.body.addEventListener("click", event => {
@@ -23,6 +22,7 @@ const clickListen = () => {
 			}
 		} else if (btn.parentNode.id == "users") {
 			let userId = [...btn.childNodes.values()][0].id;
+			const domController = require("./dom");
 			domController.resetEditButtons(userId);
 		}
 	});

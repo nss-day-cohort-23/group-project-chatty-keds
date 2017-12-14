@@ -15,7 +15,6 @@ const editMessage = id => {
     textarea.classList = "edit-msg";
     msgWrapper.appendChild(textarea);
     textarea.focus();
-    domController.focusTextarea(textarea);
 };
 
 module.exports = {editMessage};

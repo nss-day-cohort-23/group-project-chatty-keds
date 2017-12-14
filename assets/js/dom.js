@@ -1,5 +1,7 @@
 "use strict";
 
+const domController = require("./dom");
+const events = require("./events");
 
 const focusTextarea = textarea => {
 	textarea.style.height = `${textarea.scrollHeight+2}px`;
@@ -18,6 +20,7 @@ const unfocusTextarea = event => {
 		textarea.removeEventListener("blur", unfocusTextarea);
 		textarea.remove();
 		parent.appendChild(msg);
+		domController.resetEditButtons(events.getSelectedUserId());
 	}
 };
 
