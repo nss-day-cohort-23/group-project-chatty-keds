@@ -10,7 +10,6 @@ const addMessage = (body, timestamp, user) => {
       timestamp = timestamper.stamper();
     }
     let message = {body, timestamp, user};
-    console.log(message);
     let msgElm = createMsgElm(message);
     let container = document.getElementById("message-container");
     container.appendChild(msgElm);
