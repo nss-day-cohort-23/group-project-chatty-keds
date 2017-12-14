@@ -24,8 +24,8 @@ const createMsgElm = (message) => {
     let id = message.timestamp;
     let text = message.body;
     let userId = message.user;
-    let user = chatters.filter(chatter => chatter.id == userId);
-    let username = [...user][0].username;
+    let user = [...chatters.filter(chatter => chatter.id == userId)][0];
+    let username = user.username;
 
     const msgWrapper = document.createElement("div");
     msgWrapper.id = `${id}`;
@@ -41,7 +41,8 @@ const createMsgElm = (message) => {
     msgDeleteBtn.className = "delete-button btn btn-outline-danger btn-sm ml-3";
     msgDeleteBtn.innerText = "Delete";
     const msgEditBtn = document.createElement("button");
-    msgEditBtn.className = "edit-button btn btn-outline-secondary btn-sm ml-3";
+    msgEditBtn.className = "edit-button hidden btn btn-outline-secondary btn-sm ml-3";
+    msgEditBtn.dataset.user = user.id;
     msgEditBtn.innerText = "Edit";
 
     const msgMeta = document.createElement("div");

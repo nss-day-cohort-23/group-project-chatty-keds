@@ -24,9 +24,9 @@ const unfocusTextarea = event => {
 const resetEditButtons = activeUserId => {
     let editButtons = [...document.getElementsByClassName("edit-button")];
     const events = require("./events");
-    console.log(events.getSelectedUserId());
     editButtons.forEach(button => {
-        if (events.getSelectedUserId() == button.parentNode.dataset.user) {
+        button.classList += " hidden";
+        if (activeUserId == button.dataset.user) {
             button.classList.remove("hidden");
         }
     });

@@ -5,6 +5,7 @@ const deleter = require('./delete');
 const sizer = require("./text-sizer");
 const styler = require("./themes");
 const editer = require("./edit");
+const domController = require("./dom");
 
 const clickListen = () => {
 	document.body.addEventListener("click", event => {
@@ -20,6 +21,9 @@ const clickListen = () => {
 			} else if (classes.search(/edit/gi) != -1) {
 				editer.editMessage(btn.parentNode.id);
 			}
+		} else if (btn.parentNode.id == "users") {
+			let userId = [...btn.childNodes.values()][0].id;
+			domController.resetEditButtons(userId);
 		}
 	});
 };
@@ -58,6 +62,8 @@ const getSelectedUserId = () => {
 	let activeUserId = input.id;
 	return activeUserId;
 };
+
+module.exports.getSelectedUserId = getSelectedUserId;
 
 module.exports.addListeners = () => {
 	changeListen();

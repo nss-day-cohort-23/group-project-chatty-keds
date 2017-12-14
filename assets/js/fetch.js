@@ -2,6 +2,8 @@
 
 const adder = require("./add");
 const fetcher = require("./fetch");
+const domController = require("./dom");
+const events = require("./events");
 
 const fetchMessages = filename => {
     let request = new XMLHttpRequest();
@@ -16,6 +18,7 @@ const parseMessages = event => {
     messages.forEach(message => {
         adder.addMessage(message.body, message.timestamp, message.user);
     });
+	domController.resetEditButtons(events.getSelectedUserId());
 };
 
 const fetchUsers = filename => {
