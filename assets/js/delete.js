@@ -10,5 +10,5 @@ module.exports.deleteMessage = (id, arr) => {
             let idx = arr.indexOf(item);
             return arr.splice(idx, 1);
         }
-    })
+    });
 };

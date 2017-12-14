@@ -6,8 +6,8 @@ const checkEmpty = require("./check-empty");
 const router = require("./messages-router");
 
 const addMessage = (data) => {
-    if (!timestamp) {
-      timestamp = timestamper.stamper();
+    if (!data.timestamp) {
+      data.timestamp = timestamper.stamper();
     }
     let msgElm = createMsgElm(data);
     let container = document.getElementById("message-container");

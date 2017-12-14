@@ -5,7 +5,7 @@ const time = require("./timestamper");
 const sizer = require("./text-sizer");
 const styler = require("./themes");
 const checkEmpty = require("./check-empty");
-const users = require("./users")
+const users = require("./users");
 
 const clickListen = () => {
     document.body.addEventListener("click", event => {
