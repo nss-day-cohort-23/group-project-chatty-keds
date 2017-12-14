@@ -13,13 +13,11 @@ const testUser = [{
     "username": "luke"
 }];
 const init = () => {
-
-    setLocalStorage.save("messages", testMsg);
     setLocalStorage.save("users", testUser);
 
     getLocalStorage.fetch("users");
-    // getLocalStorage.fetch("themes");
-    // getLocalStorage.fetch("sizer");
+    getLocalStorage.fetch("themes");
+    getLocalStorage.fetch("sizer");
     getLocalStorage.fetch("messages");
     listeners.addListeners();
 };
