@@ -10,12 +10,9 @@ const addMessage = (string, timestamp, user) => {
     if (!timestamp) {
       timestamp = timestamper.stamper();
     }
-    // add message to array
     let message = saveMessage(string, timestamp, user);
-    // get DOM element to add
     let msgElm = createMsgElm(message);
     let container = document.getElementById("message-container");
-    // add message to DOM
     container.appendChild(msgElm);
     clearMsgsDisable.enable(Chatty.length);
 };
