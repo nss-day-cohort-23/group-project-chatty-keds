@@ -5,6 +5,7 @@ let chatters = [];
 const timestamper = require("./timestamper");
 const dateReader = require("./date-reader");
 const clearMsgsDisable = require("./clear-disable");
+const empty = require("./empty.js");
 
 const addMessage = (string, timestamp, user) => {
     if (!timestamp) {
