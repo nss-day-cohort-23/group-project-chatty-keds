@@ -1,10 +1,10 @@
 "use strict";
 
-const add = require("./add");
+const adder = require("./add");
 const deleter = require('./delete');
 const sizer = require("./text-sizer");
 const styler = require("./themes");
-const clearMsgsDisable = require("./clear-disable");
+const checkEmpty = require("./check-empty");
 
 const clickListen = () => {
 	document.body.addEventListener("click", event => {
@@ -16,8 +16,6 @@ const clickListen = () => {
 			[...document.getElementsByClassName("message-wrapper")].forEach(item => {
 				deleter.deleteMessage(item.id);
 			});
-
-			clearMsgsDisable.disable(0);
 		}
 	});
 };
@@ -41,9 +39,9 @@ const enterListen = () => {
 	document.body.addEventListener("keypress", event => {
 		const inputId = event.target.id;
 		let check = event.key === "Enter" && inputId === "msgInput" && event.target.value.trim() !== "";
-		if (check){
+		if (check) {
 			const inputElm = document.getElementById(inputId);
-			add.addMessage(event.target.value, null, getSelectedUserId());
+			adder.addMessage(event.target.value, null, getSelectedUserId());
 			inputElm.value = '';
 		}
 	});
@@ -58,7 +56,7 @@ const getSelectedUserId = () => {
 };
 
 module.exports.addListeners = () => {
-		changeListen();
-		clickListen();
-		enterListen();
+	changeListen();
+	clickListen();
+	enterListen();
 };

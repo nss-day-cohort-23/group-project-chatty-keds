@@ -7,6 +7,10 @@ body {
     font-size: 1.5rem;
 }
 
+.hidden {
+    display: none;
+}
+
 #message-container {
     border: 1px solid $border;
     padding: 1rem;
@@ -73,6 +77,8 @@ nav {
         color: $bg;
         background: $button;
         border-color: $button;
+        opacity: .5;
+        cursor: not-allowed;
     }
     &:hover {
         background-color: darken($button, 10%);
