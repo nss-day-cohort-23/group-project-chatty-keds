@@ -90,4 +90,4 @@ var users = {
 ### :white_check_mark: Timestamp
 
 1. :white_check_mark: Put a timestamp on each message.
-1. A:white_check_mark: gain, this will change the structure of your JSON file.
+1. :white_check_mark: Again, this will change the structure of your JSON file.
