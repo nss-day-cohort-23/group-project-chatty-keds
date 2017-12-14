@@ -32,7 +32,7 @@ module.exports.new = (body, timestamp, user) => {
     let message = {body, timestamp, user};
     messages.push(message);
     setter.save("messages", messages);
-    adder.addMessage(body, timestamp, user);
+    adder.addMessage(message);
 };
 
 module.exports.deletes = num => {
