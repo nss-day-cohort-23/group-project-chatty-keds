@@ -40,6 +40,9 @@ const createMsgElm = (message) => {
     const msgDeleteBtn = document.createElement("button");
     msgDeleteBtn.className = "delete-button btn btn-outline-danger btn-sm ml-3";
     msgDeleteBtn.innerText = "Delete";
+    const msgEditBtn = document.createElement("button");
+    msgEditBtn.className = "edit-button btn btn-outline-secondary btn-sm ml-3";
+    msgEditBtn.innerText = "Edit";
 
     const msgMeta = document.createElement("div");
     msgMeta.classList = "meta";
@@ -56,6 +59,7 @@ const createMsgElm = (message) => {
     msgMeta.appendChild(msgTimestamp);
 
     msgWrapper.appendChild(msgDeleteBtn);
+    msgWrapper.appendChild(msgEditBtn);
     msgWrapper.appendChild(msgMeta);
     msgWrapper.appendChild(msgContent);
 
