@@ -12,7 +12,7 @@ module.exports.displayUsers = users => {
         btn.type = "radio";
         btn.name = "users";
         btn.id = user.id;
-        
+
         label.appendChild(btn);
         label.innerHTML += user.username;
 
@@ -20,3 +20,11 @@ module.exports.displayUsers = users => {
     });
 };
 
+
+module.exports.getUserId = () => {
+    let usersObj = document.getElementById("users");
+    let activeUser = [...usersObj.getElementsByClassName("active")][0];
+    let input = activeUser.childNodes[0];
+    let activeUserId = input.id;
+    return activeUserId;
+};
