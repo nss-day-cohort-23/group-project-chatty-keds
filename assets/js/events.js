@@ -1,7 +1,7 @@
 "use strict";
 
-const add = require("./add");
-const deleter = require('./delete');
+const msgRouter = require("./messages-router");
+const time = require("./timestamper");
 const sizer = require("./text-sizer");
 const styler = require("./themes");
 const clearMsgsDisable = require("./clear-disable");
@@ -10,11 +10,11 @@ const clickListen = () => {
   document.body.addEventListener("click", event => {
     const deleteBtnCheck = event.target.className.search(/delete-button/);
     if (deleteBtnCheck > -1) {
-      deleter.deleteMessage(event.target.parentNode.id);
+      msgRouter.deletes(event.target.parentNode.id);
     }
     if (event.target.id === "clearMsgs") {
       [...document.getElementsByClassName("message-wrapper")].forEach(item => {
-        deleter.deleteMessage(item.id);
+        msgRouter.deletes(item.id);
       });
 
       clearMsgsDisable.disable(0);
@@ -43,7 +43,7 @@ const enterListen = () => {
     let check = event.key === "Enter" && inputId === "msgInput" && event.target.value.trim() !== "";
     if (check){
       const inputElm = document.getElementById(inputId);
-      add.addMessage(event.target.value, null, 1);
+      msgRouter.new(event.target.value, time.stamper(), 1);
       inputElm.value = '';
     }
   });
