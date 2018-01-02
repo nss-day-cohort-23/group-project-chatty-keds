@@ -12,6 +12,9 @@ const modFuncs = {
 let itemsArr = [];
 
 module.exports.fetch = key => {
-    itemsArr = JSON.parse(localStorage.getItem(key));
-    modFuncs[key](key, itemsArr);
+    let unparsed = localStorage.getItem(key);
+    if (unparsed && unparsed !== "undefined") {
+      itemsArr = JSON.parse(unparsed);
+      modFuncs[key](key, itemsArr);
+    }
 };

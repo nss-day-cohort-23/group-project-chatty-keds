@@ -20,7 +20,8 @@ module.exports.routeFetch = (key, data) => {
     if (key === "messages" && data !== null) {
         messages = data;
         data.forEach(item => {
-            adder.addMessage(item.body, item.timestamp, item.user);
+            let obj = {body: item.body, timestamp: item.timestamp, user: item.user};
+            adder.addMessage(obj);
         });
     } else if (key === "users") {
         users = data;

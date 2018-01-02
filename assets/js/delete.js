@@ -8,7 +8,8 @@ module.exports.deleteMessage = (id, arr) => {
     arr.forEach(item => {
         if (item.timestamp == id) {
             let idx = arr.indexOf(item);
-            return arr.splice(idx, 1);
+            arr.splice(idx, 1);
         }
     });
+    return arr;
 };
