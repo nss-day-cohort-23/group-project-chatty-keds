@@ -2,23 +2,21 @@
 
 const router = require('./messages-router');
 
-const clearMsgs = document.getElementById("clearMsgs");
-const emptyMsg = document.getElementById("empty-msg");
 
 const disableClearBtn = () => {
-    clearMsgs.classList.add("disabled");
-    clearMsgs.disabled = true;
+    $("#clearMsgs").addClass("disabled");
+    $("#clearMsgs").attr("disabled", true);
 };
 const enableClearBtn = () => {
-    clearMsgs.classList.remove("disabled");
-    clearMsgs.disabled = false;
+    $("#clearMsgs").removeClass("disabled");
+    $("#clearMsgs").attr("disabled", false);
 };
 
 const showEmptyMsg = () => {
-    emptyMsg.classList.remove("hidden");
+    $("#empty-msg").removeClass("hidden");
 };
 const hideEmptyMsg = () => {
-    emptyMsg.classList.add("hidden");
+    $("#empty-msg").addClass("hidden");
 };
 
 const checkMsgCount = () => {
